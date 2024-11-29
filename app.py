@@ -14,7 +14,7 @@ class ExpenseApp(QWidget):
         self.setWindowTitle("Expense Tracker 2.0")
         self.resize(550, 500)
 
-        # Initialize Widgets
+        
         self.date_box = QDateEdit()
         self.date_box.setDate(QDate.currentDate())
         self.dropdown = QComboBox()
@@ -28,17 +28,17 @@ class ExpenseApp(QWidget):
         self.table.setHorizontalHeaderLabels(["Id", "Date", "Category", "Amount", "Description"])
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
 
-        # Connect Buttons to Methods
+        
         self.add_button.clicked.connect(self.add_expense)
         self.delete_button.clicked.connect(self.delete_expense)
 
-        # Setup Layouts
+        
         self.setup_layout()
 
-        # Populate Dropdown Categories
+        
         self.populate_dropdown()
 
-        # Apply Styling
+        
         self.apply_styles()
 
     def setup_layout(self):
@@ -47,23 +47,19 @@ class ExpenseApp(QWidget):
         row2 = QHBoxLayout()
         row3 = QHBoxLayout()
 
-        # Row 1
         row1.addWidget(QLabel("Date:"))
         row1.addWidget(self.date_box)
         row1.addWidget(QLabel("Category:"))
         row1.addWidget(self.dropdown)
 
-        # Row 2
         row2.addWidget(QLabel("Amount:"))
         row2.addWidget(self.amount)
         row2.addWidget(QLabel("Description:"))
         row2.addWidget(self.description)
 
-        # Row 3 (Buttons)
         row3.addWidget(self.add_button)
         row3.addWidget(self.delete_button)
 
-        # Add rows to main layout
         layout.addLayout(row1)
         layout.addLayout(row2)
         layout.addLayout(row3)
