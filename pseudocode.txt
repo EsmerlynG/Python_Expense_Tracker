@@ -1,0 +1,90 @@
+### Pseudocode for `expense_app.py`
+
+Here is a simplified pseudocode representation of the Python code you provided:
+
+---
+
+#### **Class Definition: `ExpenseApp`**
+1. **Class Initialization:**
+   - Set up the user interface and populate the table with existing expenses.
+
+2. **Method: `init_ui()`**
+   - Set window properties (title and size).
+   - Initialize widgets:
+     - Date picker, dropdown, text fields, buttons, and table.
+   - Connect buttons to their respective methods:
+     - `add_button` → `add_expense`
+     - `delete_button` → `delete_expense`
+   - Organize widgets into layouts.
+   - Populate dropdown with expense categories.
+   - Apply styling to the UI.
+
+3. **Method: `setup_layout()`**
+   - Create layouts for rows and organize widgets in each row:
+     - Row 1: `Date`, `Date Picker`, `Category`, and `Dropdown`.
+     - Row 2: `Amount` field and `Description` field.
+     - Row 3: `Add Expense` and `Delete Expense` buttons.
+   - Add rows and table to the main layout.
+
+4. **Method: `populate_dropdown()`**
+   - Fill the dropdown with categories like `Food`, `Rent`, `Shopping`, etc.
+
+5. **Method: `apply_styles()`**
+   - Define and apply styles for various UI components (e.g., buttons, text fields, and table).
+
+6. **Method: `load_table_data()`**
+   - Fetch all expenses from the database.
+   - Clear the table and repopulate it with fetched expenses.
+
+7. **Method: `add_expense()`**
+   - Retrieve inputs from the user (date, category, amount, and description).
+   - Validate the inputs:
+     - Show a warning if `amount` or `description` is empty.
+   - Add the expense to the database.
+     - If successful, reload the table and clear inputs.
+     - Otherwise, display an error message.
+
+8. **Method: `delete_expense()`**
+   - Get the currently selected row in the table.
+   - Show a warning if no row is selected.
+   - Confirm deletion with the user.
+   - If confirmed, delete the expense from the database.
+     - Reload the table upon successful deletion.
+
+9. **Method: `clear_inputs()`**
+   - Reset all input fields to their default state:
+     - Set the current date.
+     - Reset dropdown to the first category.
+     - Clear `Amount` and `Description`.
+
+---
+
+#### **External Database Interaction**
+1. **Function: `fetch_expenses()`**
+   - Retrieve all expense records from the database.
+
+2. **Function: `add_expense_to_db(date, category, amount, description)`**
+   - Add a new expense to the database.
+   - Return `True` if successful, otherwise `False`.
+
+3. **Function: `delete_expense_from_db(expense_id)`**
+   - Delete an expense by its ID.
+   - Return `True` if successful, otherwise `False`.
+
+---
+
+### **Flow of Execution**
+1. When the app starts:
+   - The `ExpenseApp` class initializes, setting up the UI and loading expense data into the table.
+2. User actions:
+   - **Add Expense:**
+     - User fills in details and clicks `Add Expense`.
+     - The app validates the input and adds the expense to the database.
+     - Table updates with the new expense.
+   - **Delete Expense:**
+     - User selects a row and clicks `Delete Expense`.
+     - The app confirms the action and removes the expense from the database.
+     - Table updates to reflect the deletion.
+3. Styling ensures a polished UI.
+
+This pseudocode provides a high-level overview of the functionality, focusing on the logic and structure rather than implementation details.
